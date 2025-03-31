@@ -51,5 +51,5 @@ const logger = createLogger({
 if (process.env.DEBUG === 'true') {
   logger.level = 'debug';
 }
-
+logger.level = 'debug';
 export default logger;

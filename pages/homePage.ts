@@ -14,7 +14,7 @@ export class HomePage {
   async navigateToContact() {
     logger.info('Navigating to Contact page from Home page');
     await this.contactTab.click();
-    logger.debug('Clicked Contact tab');
+    logger.debug('Clicked on Contact tab');
     //Verify UI elements states :
     // async expect(this.page.)
   }

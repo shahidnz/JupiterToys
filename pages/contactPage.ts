@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
+import logger from '@utils/logger';
 
 export class ContactPage {
   readonly page: Page;
@@ -13,7 +14,7 @@ export class ContactPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.submitButton = page.getByText("Submit");//page.locator('a.btn-contact');
+    this.submitButton = page.getByText("Submit");
     this.forenameField = page.locator('#forename');
     this.emailField = page.locator('#email');
     this.messageField = page.locator('#message');
@@ -22,10 +23,13 @@ export class ContactPage {
     this.emailError = page.locator('#email-err');
     this.messageError = page.locator('#message-err');
     this.successMessage = page.locator('.alert-success');
+    logger.debug('ContactPage initialized with UI elements');
   }
 
   async submitForm() {
     await this.submitButton.click();
+    logger.debug('Submit button clicked');
+    await this.page.waitForLoadState('networkidle', { timeout: 10000 });
   }
 
   async verifyErrorMessages() {
@@ -38,16 +42,19 @@ export class ContactPage {
     await this.forenameField.fill(forename);
     await this.emailField.fill(email);
     await this.messageField.fill(message);
+    logger.debug('Mandatory fields filled in the contact foem');
   }
 
   async verifyNoErrors() {
     await expect(this.forenameError).not.toBeVisible();
     await expect(this.emailError).not.toBeVisible();
     await expect(this.messageError).not.toBeVisible();
+    logger.debug('All errors clear');
   }
 
   async verifySuccessMessage() {
     await expect(this.successMessage).toBeVisible();
     await expect(this.successMessage).toContainText('Thanks');
+    logger.debug('Success message verified');
   }
 }
