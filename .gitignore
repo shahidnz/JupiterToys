@@ -1,0 +1,11 @@
+node_modules/
+npm-debug.log
+playwright-report/
+test-results/
+allure-results/
+allure-report/
+dist/
+*.tsbuildinfo
+.vscode/
+*.log
+.env

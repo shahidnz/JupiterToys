@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "paths": {
+        "@pages/*": ["pages/*"],
+        "@utils/*": ["utils/*"]
+      }
+    }
+  }

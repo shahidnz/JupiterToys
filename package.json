@@ -1,0 +1,23 @@
+{
+    "name": "jupiter-toys",
+    "scripts": {
+        "test": "playwright test",
+        "report": "allure generate allure-results -o allure-report && allure open"
+    },
+    "devDependencies": {
+        "@playwright/test": "*",
+        "@types/node": "^22.13.14",
+        "typescript": "*"
+    },
+    "version": "1.0.0",
+    "description": "Jupiter Toys Automation by Shahid Siddiqui",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "keywords": [],
+    "dependencies": {
+        "@playwright/test": "*",
+        "allure-playwright": "^3.2.1",
+        "winston": "*"
+    }
+}
